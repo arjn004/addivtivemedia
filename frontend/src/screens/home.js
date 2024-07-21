@@ -39,7 +39,7 @@ const HomePage = () => {
     const fetchUserProfile = async () => {
       setLoading(true); // Show loader
       try {
-        const response = await axios.get('http://localhost:5000/api/getProfile/getProfile', {
+        const response = await axios.get('/api/getProfile/getProfile', {
           withCredentials: true,
         });
         setUserInfo({
@@ -75,12 +75,12 @@ const HomePage = () => {
     setShowBioPopup(false);
     setLoading(true); // Show loader
     try {
-      await axios.post('http://localhost:5000/api/updateProfile/updateBio', {
+      await axios.post('/api/updateProfile/updateBio', {
         bio,
       }, {
         withCredentials: true,
       });
-      const response = await axios.get('http://localhost:5000/api/getProfile/getProfile', {
+      const response = await axios.get('/api/getProfile/getProfile', {
         withCredentials: true,
       });
       setBio(response.data.bio || '');
@@ -110,7 +110,7 @@ const HomePage = () => {
       setLoading(true); // Show loader
       try {
         const { Location } = await s3.upload(params).promise();
-        const response = await axios.post('http://localhost:5000/api/updateProfile/addVideo', {
+        const response = await axios.post('/api/updateProfile/addVideo', {
           videoTitle,
           videoDescription,
           videoKey: Location,
@@ -158,7 +158,7 @@ const HomePage = () => {
       setLoading(true); // Show loader
       try {
         const { Location } = await s3.upload(params).promise();
-        await axios.post('http://localhost:5000/api/updateProfile/updateProfilePic', {
+        await axios.post('/api/updateProfile/updateProfilePic', {
           profilePicUrl: Location,
         }, {
           withCredentials: true,
