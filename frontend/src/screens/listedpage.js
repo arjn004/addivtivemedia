@@ -10,7 +10,7 @@ const ListedPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/users/getAllUsers', {
+        const response = await axios.get('/api/users/getAllUsers', {
             withCredentials: true,
           });
         setUsers(response.data);
@@ -26,7 +26,7 @@ const ListedPage = () => {
 
   const handleViewAll = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/users/allVideos/${userId}`, {
+      const response = await axios.get(`/api/users/allVideos/${userId}`, {
         withCredentials: true,
       });
       setUsers(prevUsers =>
