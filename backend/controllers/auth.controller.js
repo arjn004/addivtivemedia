@@ -20,7 +20,7 @@ export const signup = async (req, res) => {
         const hashPassword = await bcrypt.hash(password, salt);
 
         const emailSubject = 'Your Signup Password';
-        const emailText = `Dear ${firstName},\n\nYour account has been created successfully. Here is your password: ${password}\n\nBest regards,\nYour Company`;
+        const emailText = `Dear ${firstName},\n\nYour account has been created successfully. Login here https://addivtivemedia.onrender.com/login with password: ${password}\n\nBest regards,\n `;
         await sendEmail(email, emailSubject, emailText);
 
     
